@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans>  
+    <bean id="son" class="wmm.javaframe.study.mvc.bean.Person">
+        <property name="name">  
+            <value>mark</value>  
+        </property>    
+    </bean>  
+    <bean id="daughter" class="wmm.javaframe.study.mvc.bean.Person">
+        <property name="name">  
+            <value>cindy</value>  
+        </property>  
+    </bean>  
+    <bean id="father" class="wmm.javaframe.study.mvc.bean.Persons">
+        <property name="son">  
+            <ref bean="son" />  
+        </property>  
+        <property name="daughter">  
+            <ref bean="daughter" />  
+        </property>  
+    </bean>
+</beans> 
