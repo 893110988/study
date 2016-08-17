@@ -5,9 +5,9 @@ import wmm.javaframe.study.annotation.ann.MyAnnotation;
 /**
  * Created by Administrator on 2016/8/17.
  */
-public class UserAnno {
+public class AppleAnno {
 
-    @MyAnnotation()
+    @MyAnnotation("apple")
     private String name;
 
 

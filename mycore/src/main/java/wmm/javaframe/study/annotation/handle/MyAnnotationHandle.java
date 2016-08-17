@@ -1,6 +1,7 @@
 package wmm.javaframe.study.annotation.handle;
 
 import wmm.javaframe.study.annotation.ann.MyAnnotation;
+import wmm.javaframe.study.annotation.model.AppleAnno;
 import wmm.javaframe.study.annotation.model.UserAnno;
 import wmm.javaframe.study.reflect.vistor.PrintVisitor;
 
@@ -40,9 +41,7 @@ public class MyAnnotationHandle {
     }
     public static void main(String[] args) {
         MyAnnotationHandle impl=new MyAnnotationHandle();
-        UserAnno anno=new UserAnno();
-       // Class cls=UserAnno.class;
-        anno= (UserAnno) impl.getAnno(anno);
-       System.out.println(anno.getName());
+       System.out.println(((UserAnno) impl.getAnno(new UserAnno())).getName());
+       System.out.println(((AppleAnno) impl.getAnno(new AppleAnno())).getName());
     }
 }
