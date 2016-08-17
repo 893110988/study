@@ -12,26 +12,25 @@ import java.lang.reflect.Method;
  * Created by Administrator on 2016/8/17.
  */
 public class MyAnnotationHandle {
-    public  void getAnno(Class cls){
+    public Object getAnno(Object o){
        String name="name:";
-        Field[] fields=cls.getDeclaredFields();
+        Field[] fields=o.getClass().getDeclaredFields();
         for(Field field:fields)
             if (field.isAnnotationPresent(MyAnnotation.class)) {
                 try {
                     String methodName="set" + firstLetterToUpper(field.getName());
-                    Method method= cls.getMethod(methodName, new Class[]{String.class});
+                    Method method= o.getClass().getMethod(methodName, new Class[]{String.class});
                     MyAnnotation myAnno =(MyAnnotation)field.getAnnotation(MyAnnotation.class);
-                    method.invoke(cls.newInstance(),new Object[] {name+myAnno.value() });
+                    method.invoke(o, new Object[] {name+myAnno.value() });
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
                 }
             }
+        return o;
     }
 
     public static String firstLetterToUpper(String str){
@@ -41,9 +40,9 @@ public class MyAnnotationHandle {
     }
     public static void main(String[] args) {
         MyAnnotationHandle impl=new MyAnnotationHandle();
-        //UserAnno anno=new UserAnno();
+        UserAnno anno=new UserAnno();
        // Class cls=UserAnno.class;
-        impl.getAnno(UserAnno.class);
-       // System.out.println(anno.getName());
+        anno= (UserAnno) impl.getAnno(anno);
+       System.out.println(anno.getName());
     }
 }
