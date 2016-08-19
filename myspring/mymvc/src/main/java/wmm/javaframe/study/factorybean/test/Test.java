@@ -5,7 +5,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import wmm.javaframe.study.factorybean.bean.MyFactory;
 
-
+/**
+ * factoryBean spring init 实现源码重现
+ */
 public class Test {
 
 	public static void main(String[] args) {
