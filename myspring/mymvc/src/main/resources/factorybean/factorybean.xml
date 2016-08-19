@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <!--<bean id="myFactory" class="wmm.javaframe.study.factorybean.bean.MyFactory"></bean>-->
+
+       <bean id="myFactoryBean" class="wmm.javaframe.study.factorybean.MyFactoryBean">
+
+              <!--<property name="myFactory" ref="myFactory"></property>-->
+              <!--<property name="myFactoryName" ref="wmm.javaframe.study.factorybean.bean.MyFactory"></property>-->
+       </bean>
+
+</beans>
