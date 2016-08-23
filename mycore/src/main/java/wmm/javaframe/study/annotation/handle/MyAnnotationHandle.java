@@ -20,8 +20,10 @@ public class MyAnnotationHandle {
             if (field.isAnnotationPresent(MyAnnotation.class)) {
                 try {
                     String methodName="set" + firstLetterToUpper(field.getName());
+                    //反射原来的类  方法  方法的参数
                     Method method= o.getClass().getMethod(methodName, new Class[]{String.class});
                     MyAnnotation myAnno =(MyAnnotation)field.getAnnotation(MyAnnotation.class);
+                    //对象  参数
                     method.invoke(o, new Object[] {name+myAnno.value() });
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
