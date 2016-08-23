@@ -1,4 +1,4 @@
-package wmm.javaframe.study.hash;
+package wmm.javaframe.study.map.hash;
 
 import wmm.javaframe.study.core.model.User;
 
