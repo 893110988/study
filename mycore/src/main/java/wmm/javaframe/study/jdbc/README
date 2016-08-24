@@ -7,7 +7,7 @@ if (configs == null) {
         if (loader == null)
             configs = ClassLoader.getSystemResources(fullName);
         else
-            configs = loader.getResources(fullName);
+            configs = loader.getResources(fullName);//ClassLoader
     } catch (IOException x) {
         fail(service, "Error locating configuration files", x);
     }
