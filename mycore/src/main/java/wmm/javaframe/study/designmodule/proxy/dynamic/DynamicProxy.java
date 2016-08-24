@@ -12,15 +12,15 @@ import java.sql.Connection;
  */
 public class DynamicProxy implements InvocationHandler {
 
-    private Connection connection;
+    private Object connection;
 
-    public DynamicProxy(Connection connection){
+    public DynamicProxy(Object connection){
         this.connection=connection;
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if(Connection.class.isAssignableFrom(proxy.getClass())&&method.getName().equals("close")){
-            DataSource.getDataSource().recoveryConnection(connection);
+            DataSource.getDataSource().recoveryConnection((Connection)connection);
             System.out.println("im fake close Dynamic");
             return null;
         }else {
@@ -28,7 +28,5 @@ public class DynamicProxy implements InvocationHandler {
         }
     }
 
-    public Connection getDynamicProxy(){
-        return (Connection) Proxy.newProxyInstance(getClass().getClassLoader(),new Class[]{Connection.class},this);
-    }
+
 }
