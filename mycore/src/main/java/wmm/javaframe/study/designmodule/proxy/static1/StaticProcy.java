@@ -20,6 +20,7 @@ public class StaticProcy implements MyConnection {
 
     public void close() throws SQLException {
         System.out.println("im fake close ");
+        DataSource.getDataSource().recoveryConnection(connection);
     }
 
     public <T> T unwrap(Class<T> iface) throws SQLException {

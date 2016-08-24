@@ -44,6 +44,10 @@ public class DataSource {
         return GetDataSource.dataSource;
     }
 
+    public void recoveryConnection(Connection connection) {
+        conns.add(connection);
+    }
+
 
     private static class GetDataSource{
         static DataSource dataSource=new DataSource();
