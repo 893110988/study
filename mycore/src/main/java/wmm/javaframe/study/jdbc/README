@@ -1,0 +1,14 @@
+在jdk1.6之前链接数据库之前要加载数据库驱动：  Class.forName("com.mysql.Driver");//加载并初始化Driver类
+在1.6之后的版本jvm在加载jar包之后会在动扫描META-INF/services/java.sql.Driver文件里面的类  就不用手动加载驱动了
+ private static final String PREFIX = "META-INF/services/";
+if (configs == null) {
+    try {
+        String fullName = PREFIX + service.getName();
+        if (loader == null)
+            configs = ClassLoader.getSystemResources(fullName);
+        else
+            configs = loader.getResources(fullName);
+    } catch (IOException x) {
+        fail(service, "Error locating configuration files", x);
+    }
+}
