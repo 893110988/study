@@ -1,5 +1,7 @@
 package wmm.javaframe.study.designmodule.proxy.static1;
 
+import wmm.javaframe.study.designmodule.proxy.DataSource;
+
 import java.sql.*;
 
 /**

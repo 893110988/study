@@ -1,9 +1,10 @@
-package wmm.javaframe.study.designmodule.proxy.static1;
+package wmm.javaframe.study.designmodule.proxy;
 
 
-import com.mysql.jdbc.Statement;
+import wmm.javaframe.study.designmodule.proxy.dynamic.DynamicProxy;
+import wmm.javaframe.study.designmodule.proxy.static1.MyConnection;
+import wmm.javaframe.study.designmodule.proxy.static1.StaticProcy;
 
-import java.security.PublicKey;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -32,13 +33,18 @@ public class DataSource {
         }
     }
 
-    public MyConnection getConnection() throws SQLException {
+    public MyConnection getStaticConnection() throws SQLException {
         if(conns!=null&&conns.size()>0) {
             return new StaticProcy(conns.remove());
         }
         return null;
     }
-
+    public DynamicProxy getDynamicConnection() throws SQLException {
+        if(conns!=null&&conns.size()>0) {
+            return new DynamicProxy(conns.remove());
+        }
+        return null;
+    }
 
     public static DataSource getDataSource(){
         return GetDataSource.dataSource;

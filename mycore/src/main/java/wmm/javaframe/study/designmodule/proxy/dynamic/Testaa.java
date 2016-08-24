@@ -1,7 +1,9 @@
-package wmm.javaframe.study.designmodule.proxy.static1;
+package wmm.javaframe.study.designmodule.proxy.dynamic;
 
 import wmm.javaframe.study.designmodule.proxy.DataSource;
+import wmm.javaframe.study.designmodule.proxy.static1.MyConnection;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -24,7 +26,7 @@ public class Testaa {
     }*/
     public static void main(String[] args) {
         try {
-            MyConnection conn= DataSource.getDataSource().getStaticConnection();
+            Connection conn= DataSource.getDataSource().getDynamicConnection().getDynamicProxy();
             ResultSet set=conn.createStatement().executeQuery("SELECT * FROM USER ");
             conn.close();
             System.out.println("adfasdf");
