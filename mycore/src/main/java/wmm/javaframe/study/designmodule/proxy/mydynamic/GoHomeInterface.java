@@ -7,4 +7,5 @@ public interface GoHomeInterface {
     public String goHome();
 
     public String goWork();
+    public String asdf();
 }

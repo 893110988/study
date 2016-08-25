@@ -13,8 +13,10 @@ public class GoHomeProxy implements InvocationHandler{
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        /*if( target.getClass().isAssignableFrom(GoHome.class))
-            return "哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈";*/
+        //System.out.println("asdffffffff");
+        if( target.getClass().isAssignableFrom(GoHome.class))
+            return "哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈";
+       // System.out.println("asdffffffff");
         return method.invoke(target,args);
     }
 }
