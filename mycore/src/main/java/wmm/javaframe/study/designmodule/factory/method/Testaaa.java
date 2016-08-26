@@ -2,7 +2,8 @@ package wmm.javaframe.study.designmodule.factory.method;
 
 /**
  * Created by Administrator on 2016/8/25.
- * 简单工厂模拟了+springBean管理里面获取需要的Bean
+ * 工厂生产唯一产品
+ * 不确定工厂
  */
 public class Testaaa {
 
