@@ -1,0 +1,2 @@
+观察者模式：发布-订阅式obsrver     发布（release）--订阅（subscibe），变化（change）--更新（update）
+事件驱动模型：事件驱动则更多的注重于界面与数据模型之间listener  请求（request）--响应（response），事件发生（occur）--事件处理（handle）
