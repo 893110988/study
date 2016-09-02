@@ -27,3 +27,70 @@
 策略模式strategy
     定义：策略模式定义了一系列的算法，并将每一个算法封装起来，而且使它们还可以相互替换。策略模式让算法独立于使用它的客户而独立变化
     工厂相当于黑盒子，策略相当于白盒子
+适配器模式
+    定义：适配器模式从实现方式上分为两种，类适配器和对象适配器，这两种的区别在于实现方式上的不同，一种采用继承，一种采用组合的方式。
+    另外从使用目的上来说，也可以分为两种，特殊适配器和缺省适配器，这两种的区别在于使用目的上的不同，
+    一种为了复用原有的代码并适配当前的接口，一种为了提供缺省的实现，避免子类需要实现不该实现的方法。
+    运用：场景通常情况下是，系统中有一套完整的类结构，而我们需要利用其中某一个类的功能（通俗点说可以说是方法），
+    但是我们的客户端只认识另外一个和这个类结构不相关的接口，这时候就是适配器模式发挥的时候了，我们可以将这个现有的类与我们的目标接口进行适配，
+    最终获得一个符合需要的接口并且包含待复用的类的功能的类。
+    1，第一种类适配器，一般是针对适配目标是接口的情况下使用。
+    2，第二种对象适配器，一般是针对适配目标是类或者是需要复用的对象多于一个的时候使用，这里再专门提示一下，
+    对象适配器有时候是为了将多个类一起适配，所以才不得不使用组合的方式，而且我们采用对象适配器的时候，继承也不是必须的，
+    而是根据实际的类之间的关系来进行处理，上述例子当中一定要直接或间接的继承自BaseEntity是为了不破坏我们原来的继承体系，
+    但有些情况下这并不是必须的。
+    对于第三个缺省适配器，一般是为了弥补接口过大所犯下的过错，但是也请注意衡量利弊，权衡好以后再考虑是否要使用缺省适配器。
+模板模式
+    类加载器就是模板模式
+    通常情况下，模板方法模式用于定义构建某个对象的步骤与顺序，或者定义一个算法的骨架。
+    public interface PageBuilder {
+        String bulidHtml();
+    }
+    public abstract class AbstractPageBuilder implements PageBuilder{
+        private StringBuffer stringBuffer = new StringBuffer();
+        public String bulidHtml() {
+            //首先加入doctype,因为都是html页面,所以我们父类不需要推迟给子类实现,直接在父类实现
+            stringBuffer.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
+            //页面下面就是成对的一个HTML标签，我们也在父类加入,不需要给子类实现
+            stringBuffer.append("<html xmlns=\"http://www.w3.org/1999/xhtml\">");
+            //下面就应该是head标签里的内容了,这个我们父类做不了主了,推迟到子类实现,所以我们定义一个抽象方法,让子类必须实现
+            appendHead(stringBuffer);
+            //下面是body的内容了，我们父类依然无法做主，仍然推迟到子类实现
+            appendBody(stringBuffer);
+            //html标签的关闭
+            stringBuffer.append("</html>");
+            return stringBuffer.toString();
+        }
+        //第一个模板方法
+        protected abstract void appendHead(StringBuffer stringBuffer);
+        //第二个模板方法
+        protected abstract void appendBody(StringBuffer stringBuffer);
+    }
+    public class MyPageBuilder extends AbstractPageBuilder{
+        @Override
+        protected void appendHead(StringBuffer stringBuffer) {
+            stringBuffer.append("<head><title>你好</title></head>");
+        }
+        @Override
+        protected void appendBody(StringBuffer stringBuffer) {
+            stringBuffer.append("<body><h1>你好,世界！</h1></body>");
+        }
+        public static void main(String[] args) {
+            PageBuilder pageBuilder = new MyPageBuilder();
+            System.out.println(pageBuilder.bulidHtml());
+        }
+    }
+装饰模式decorate
+    定义：装饰模式是在不必改变原类文件和使用继承的情况下，动态的扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象。
+    1，不改变原类文件。
+    2，不使用继承。
+    3，动态扩展。
+外观模式（action - service - dao）service就是外观模式
+    1，实际使用当中，接口并不是必须的，虽说根据依赖倒置原则，无论是处于高层的外观层，还是处于底层的子系统，都应该依赖于抽象，但是这会倒置子系统的每一个实现都要对应一个接口，从而导致系统的复杂性增加，所以这样做并不是必须的。
+    2，外观接口当中并不一定是子系统中某几个功能的组合，也可以是将子系统中某一个接口的某一功能单独暴露给客户端。
+    3，外观接口如果需要暴露给客户端很多的功能的话，可以将外观接口拆分为若干个外观接口，如此便会形成一层外观层。
+命令模式：
+    定义：在软件系统中，“行为请求者”与“行为实现者”通常呈现一种“紧耦合”。
+    但在某些场合，比如要对行为进行“记录、撤销/重做、事务”等处理，这种无法抵御变化的紧耦合是不合适的。
+    在这种情况下，如何将“行为请求者”与“行为实现者”解耦？将一组行为抽象为对象，实现二者之间的松耦合。这就是命令模式（Command Pattern）。
+
