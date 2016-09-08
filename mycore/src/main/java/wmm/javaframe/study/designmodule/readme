@@ -1,5 +1,5 @@
 设计模式详细学习designmodule包
-参考资料http://www.cnblogs.com/zuoxiaolong/p/pattern1.html
+参考资料http://www.cnblogs.com/zuoxiaolong/p/pattern26.html
 
 设计6大原则principle
     单一职责原则（六大规则中的小萝莉，人见人爱）：描述的意思是每个类都只负责单一的功能，切不可太多，并且一个类应当尽量的把一个功能做到极致。
@@ -99,5 +99,42 @@
     它的优点倒是非常明显，清除了一系列对象之间复杂的耦合关系，并且中介者可以控制这一系列对象的行为，统一管理。
     《中介者模式》的缺点是，由于中介者负责着一系列对象的交互与控制，所以中介者的类会非常复杂，而且一旦中介者类无法正常工作，
     那么所有将行为委托给中介者的类都将会出现问题，所以在使用的时候还是要特别小心。
+桥接模式
+    定义：在软件系统中，某些类型由于自身的逻辑，它具有两个或多个维度的变化，那么如何应对这种“多维度的变化”？
+    如何利用面向对象的技术来使得该类型能够轻松的沿着多个方向进行变化，而又不引入额外的复杂度？这就要使用Bridge模式。
+    而具体使用的方式，则是将抽象部分与他们的实现部分分离，使得它们都可以独立的变化。
+    抽象部分和实现部分，通常意义下，应该指的是继承体系中，接口相同而实现也相同的部分则为抽象部分，而接口相同但是实现不同的部分则为实现部分。”
+public class Use {
+    public static void main(String[] args) {
+        Soul soul = new Doppelganger();
+        soul.setAppearance(new TRH());//设置分身外貌为高富帅
+        soul.setSkills(new Invisible());//设置隐身技能
+        soul.doAllLikePeople();
+        System.out.println("----------------------------");
+        soul.show();
+        soul.releaseSkills();
+        System.out.println("----------------------------");
+        //切换技能
+        soul.setSkills(new ReadMind());
+        soul.releaseSkills();
+        System.out.println("----------------------------");
+        //切换外貌
+        soul.setAppearance(new Loser());
+        soul.show();
+        System.out.println("----------------------------");
+        //切换技能
+        soul.setSkills(new Volant());
+        soul.releaseSkills();
+    }
+}
+建造者模式：
+       定义：将一个复杂对象的构造与它的表示分离，使同样的构建过程可以创建不同的表示，这样的设计模式被称为建造者模式。
+       public static void main(String[] args) {
+               Soul soul = new Soul();
+               //制造一个瘦小的看守所的人员
+               System.out.println("获得了" + soul.createDoppelganger(new ThinBuilder(),"看守所人员1"));
+               System.out.println("----------------------------------------");
 
-
+               //制造一个胖胖的看守所的人员
+               System.out.println("获得了" + soul.createDoppelganger(new FatBuilder(),"看守所人员2"));
+           }
