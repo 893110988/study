@@ -4,7 +4,7 @@ import wmm.javaframe.study.core.model.User;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
+
 
 /**
  * Created by Administrator on 2016/8/10.
@@ -45,16 +45,22 @@ public class HashMapObject {
         users.put(u1,u1);
         users.put(u2,u2);
         users.put("as",u2);
-        users.put(u1,u2);
         //users.
         System.out.println(users.get(u1).hashCode());
         System.out.println(users.get(u2).hashCode());
         System.out.println(users.get("as").hashCode());
-        System.out.println(users.get(u1)==(users.get(u2)));
+        System.out.println(users.get("as")==(users.get(u2)));
 
         HashSet<Object> asd=new HashSet<Object>();
         asd.add("asd");
         asd.iterator();
+
+        String bb=new String("aa");
+        String aa="aa";
+        String cc="aa";
+        System.out.println(aa==bb.intern());
+        System.out.println(aa==cc);
+
     }
 
 

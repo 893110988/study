@@ -1,2 +1,20 @@
 学习的步骤
     整体规划参考http://www.codeceo.com/article/back-ali-interview.html
+
+
+
+    24种设计模式
+    how tomcat work http://pan.baidu.com/s/1cMU3d
+    jvm内存管理
+    mysql调优
+    zookeeper
+        leader接收到的来自某个follower封包一定是FOLLOWERINFO,该封包告知了该服务器保存的数据id.之后根据这个数据id与本机保存的数据进行比较:
+        1) 如果数据完全一致,则发送DIFF封包告知follower当前数据就是最新的了.
+        2) 判断这一阶段之内有没有已经被提交的提议值,如果有,那么:
+        a) 如果有部分数据没有同步,那么会发送DIFF封包将有差异的数据同步过去.同时将follower没有的数据逐个发送COMMIT封包给follower要求记录下来.
+        b) 如果follower数据id更大,那么会发送TRUNC封包告知截除多余数据.
+        3) 如果这一阶段内没有提交的提议值,直接发送SNAP封包将快照同步发送给follower.
+        以上消息完毕之后,发送UPTODATE封包告知follower当前数据就是最新的了,再次发送NEWLEADER封包宣称自己是leader,等待follower的响应.
+    dubbo
+    ngnix
+    activeMQ,kafka
