@@ -7,7 +7,6 @@ import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 
 /**
- * Created by Administrator on 2016/8/19.
  * 达到一定的容量后就不允许运行新的东西了
  */
 public class SemaphoreThread extends Thread{

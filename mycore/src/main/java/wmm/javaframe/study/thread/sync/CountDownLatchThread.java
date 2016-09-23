@@ -5,9 +5,6 @@ import org.apache.commons.logging.LogFactory;
 
 import java.util.concurrent.CountDownLatch;
 
-/**
- * Created by Administrator on 2016/8/19.
- */
 public class CountDownLatchThread extends Thread {
     private Log log = LogFactory.getLog(CountDownLatchThread.class);
     private String name;

@@ -6,7 +6,6 @@ import org.apache.commons.logging.LogFactory;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * Created by Administrator on 2016/8/19.
  * 循环等待一定数目线程后执行线程
  *
  * CountDownLatch : 一个线程(或者多个)， 等待另外N个线程完成某个事情之后才能执行。

@@ -3,7 +3,6 @@ package wmm.javaframe.study.thread.sync;
 import java.util.concurrent.Semaphore;
 
 /**
- * Created by Administrator on 2016/8/19.
  * 3个窗口取号刚开始人来了有位置大于三个后就开始排队处理一个来一个。
  */
 public class MySemaphore {

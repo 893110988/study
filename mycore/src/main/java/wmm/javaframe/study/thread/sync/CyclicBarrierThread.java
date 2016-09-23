@@ -6,9 +6,6 @@ import org.apache.commons.logging.LogFactory;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-/**
- * Created by Administrator on 2016/8/22.
- */
 public class CyclicBarrierThread extends Thread{
 
     private static Log log = LogFactory.getLog(CyclicBarrierThread.class);

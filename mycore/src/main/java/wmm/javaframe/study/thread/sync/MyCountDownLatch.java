@@ -7,7 +7,6 @@ import java.util.concurrent.CountDownLatch;
 
 
 /**
- * Created by Administrator on 2016/8/19.
  * 当阻塞的线程个数到达一定量后  所有的线程一起执行
  */
 public class MyCountDownLatch {
