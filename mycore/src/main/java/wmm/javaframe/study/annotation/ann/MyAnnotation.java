@@ -26,5 +26,5 @@ http://images.cnitblog.com/blog/34483/201304/25200814-475cf2f3a8d24e0bb3b4c442a4
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface MyAnnotation {
-   String value() default  "wmm";
+   String value() default  "wmm111";
 }
