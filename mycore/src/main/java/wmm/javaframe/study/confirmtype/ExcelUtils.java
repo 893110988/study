@@ -1,8 +1,6 @@
 package wmm.javaframe.study.confirmtype;
 
 
-import com.skieer.typeconfirm.service.DataTypeConfirmService;
-import com.skieer.typeconfirm.service.impl.DataTypeConfirmServiceImpl;
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -93,7 +91,7 @@ public class ExcelUtils {
     public static void main(String[] args) throws Exception {
         FileInputStream fis = new FileInputStream("C:\\Users\\Administrator\\Desktop\\11.xlsx");
         Map<String, List<List<String>>> map = readExcel(fis, 10);
-        DataTypeConfirmService dataTypeConfirmService = new DataTypeConfirmServiceImpl();
+      /*  DataTypeConfirmService dataTypeConfirmService = new DataTypeConfirmServiceImpl();
 
 
         Map<String, Map<String, Integer>> type = dataTypeConfirmService.getRowTypeConfirm(map, 300);
@@ -106,6 +104,6 @@ public class ExcelUtils {
 
         Map<String, Map<String, Map<Integer, Integer>>> proportion = dataTypeConfirmService.getRowTypeProportion(map, 300);
         System.out.println(proportion.toString());
-
+*/
     }
 }

@@ -12,7 +12,7 @@ import java.util.concurrent.CountDownLatch;
 public class MyCountDownLatch {
     private static Log log = LogFactory.getLog(MyCountDownLatch.class);
     public static void main(String[] args) {
-        CountDownLatch countDownLatch= new CountDownLatch(4);
+        CountDownLatch countDownLatch= new CountDownLatch(7);
 
         CountDownLatchThread thread1=new CountDownLatchThread("A",countDownLatch);
         CountDownLatchThread thread2=new CountDownLatchThread("B",countDownLatch);
@@ -28,14 +28,11 @@ public class MyCountDownLatch {
         thread5.start();
         thread6.start();
         thread7.start();
-        for (int i=0;i<7;i++){
-            try {
-                Thread.sleep(1000);
-                System.out.println(i);
-                countDownLatch.countDown();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
     }
 }

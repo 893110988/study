@@ -1,0 +1,11 @@
+JDK 安全 API 是 Java 编程语言的核心 API，位于 java.security 包（及其子包）中
+
+java.security	为安全框架提供类和接口。
+java.security.acl	此包中的类和接口已经被 java.security 包中的类取代。
+java.security.cert	提供用于解析和管理证书、证书撤消列表 (CRL) 和证书路径的类和接口。
+java.security.interfaces	提供的接口用于生成 RSA Laboratory Technical Note PKCS#1 中定义的 RSA（Rivest、Shamir 和 Adleman AsymmetricCipher 算法）密钥，以及 NIST 的 FIPS-186 中定义的 DSA（数字签名算法）密钥。
+java.security.spec	提供密钥规范和算法参数规范的类和接口。
+
+http://blog.csdn.net/happylee6688/article/details/43950521
+
+base64 "wmm"->>ascii(119,109,109)->2进制01110111,01101101,01101101->2进制011101,110110,110101,101101->十进制29,54,53,45->d21t

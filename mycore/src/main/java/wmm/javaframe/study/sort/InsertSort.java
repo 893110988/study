@@ -1,5 +1,9 @@
 package wmm.javaframe.study.sort;
 
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 /**
  * Created by Administrator on 2016/8/31.
  */
@@ -24,10 +28,19 @@ public class InsertSort {
 
     public static void main(String[] args) {
         InsertSort insertSort = new InsertSort();
-        int[] array = { 5, 69, 12, 3, 56, 789, 2, 5648, 23 };
-        insertSort.insertSort(array, 0, array.length-1);// 注意此处是0-9而不是0-8
+        Integer[] array = { 5, 69, 12, 3, 56, 789, 2, 5648, 23 };
+        /*insertSort.insertSort(array, 0, array.length-1);// 注意此处是0-9而不是0-8
         for (int i = 0; i <= array.length - 1; i++) {
             System.out.print(array[i] + "\t");
-        }
+        }*/
+       List<Integer> list= Arrays.asList(array);
+        list.sort((o1,o2)->{
+            return o1.compareTo(o2);
+        });
+      // Collections.sort(list);
+
+
+        System.out.println(list);
+        //Collector.sor
     }
 }

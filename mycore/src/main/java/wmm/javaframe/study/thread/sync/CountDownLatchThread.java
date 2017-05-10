@@ -17,13 +17,14 @@ public class CountDownLatchThread extends Thread {
 
     @Override
     public void run() {
+        log.info(this.name + "准备-------：" + System.currentTimeMillis());
+        log.info(this.name + "doing-------：" + System.currentTimeMillis());
         try {
-            log.info("准备-------："+this.name+ System.currentTimeMillis());
-            countDownLatch.await();
-            log.info("doing-------："+this.name+ System.currentTimeMillis());
-            log.info("结束--------："+this.name+ System.currentTimeMillis());
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        countDownLatch.countDown();
+        log.info(this.name + "结束--------：" + System.currentTimeMillis());
     }
 }

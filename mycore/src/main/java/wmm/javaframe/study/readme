@@ -18,3 +18,8 @@
     dubbo
     ngnix
     activeMQ,kafka
+
+    http://download.oracle.com/technetwork/java/javase/6/docs/zh/api/overview-summary.html   java基础
+
+   org.apache.commons   io的一些操作
+   http://commons.apache.org/proper/commons-io/javadocs/api-2.4/index.html

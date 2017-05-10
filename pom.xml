@@ -20,6 +20,7 @@
 		<mylog.version>1.2</mylog.version>
 		<mylog4j.version>1.2.16</mylog4j.version>
 		<junittest>4.11</junittest>
+		<baba.json>1.2.12</baba.json>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -35,7 +36,11 @@
 			</dependency>
 
 
-
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${baba.json}</version>
+			</dependency>
 			<dependency>
 				<groupId>commons-logging</groupId>
 				<artifactId>commons-logging</artifactId>
